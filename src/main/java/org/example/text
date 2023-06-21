@@ -1,0 +1,74 @@
+     for(int j = 0;j<adhoc_partnumbers.size();j++)
+            {
+
+                driver.findElement(By.cssSelector(".menu_search")).click();
+                driver.findElement(By.xpath("//input[@id='menu_search']")).sendKeys(Keys.CONTROL + "a"); // Select all text
+                driver.findElement(By.xpath("//input[@id='menu_search']")).sendKeys(Keys.DELETE); // Delete selected text
+                driver.findElement(By.xpath("//input[@id='menu_search']")).click();
+                // 20 | type | id=menu_search | P37611-B21
+
+                driver.findElement(By.id("menu_search")).sendKeys(adhoc_partnumbers.get(j));
+                // 21 | sendKeys | id=menu_search | ${KEY_ENTER}
+                driver.findElement(By.id("menu_search")).sendKeys(Keys.ENTER);
+                try{ Thread.sleep(1000);}catch (InterruptedException e){}
+
+                try{ Thread.sleep(1000);}catch (InterruptedException ed){}
+
+                                    driver.findElement(By.xpath("//button[@id='button_adhoc_section']")).click();
+                                    try{ Thread.sleep(1000);}catch (InterruptedException ed){}
+                                    driver.findElement(By.xpath("//button[@id='button_adhoc_section']")).click();
+
+                                    try{ Thread.sleep(1000);}catch (InterruptedException ed){}
+                                    driver.findElement(By.xpath("//span[normalize-space()='<new ad-hoc item>']")).click();
+
+                                    driver.findElement(By.xpath("//input[@id='ad_hoc_input']")).sendKeys(adhoc_partnumber.get(i));
+                                    driver.findElement(By.xpath("//input[@id='ad_hoc_input']")).sendKeys(Keys.ENTER);
+                                    try{ Thread.sleep(4000);}catch (InterruptedException ed){}
+
+
+                                   try{
+                                       String xpathstr = "//td[contains(@id,'value_selected_instance_"+  idno +"')]";
+                                       WebElement ele = driver.findElement(By.xpath(xpathstr));
+
+                                       System.out.println("id is " + ele.getAttribute("id"));
+                                       idno = String.valueOf(1 + Integer.parseInt(ele.getAttribute("id").replace("value_selected_instance_","")));
+
+                                       ele.click();
+                                   }
+                                   catch (Exception ec) {
+
+
+                                     ec.printStackTrace();
+
+                                   }
+
+                                    //input[@id='popup_textbox']
+                                    driver.findElement(By.xpath("//input[@id='popup_textbox']")).sendKeys(quantities.get(i));
+                                    driver.findElement(By.xpath("//input[@id='popup_textbox']")).sendKeys(Keys.ENTER);
+                                    try{ Thread.sleep(4000);}catch (InterruptedException ed){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
